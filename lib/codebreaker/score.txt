@@ -1,7 +1,0 @@
-Player: VBN , attempts: 2
-Player: ALALA , attempts: 4
-Player: lol , attempts: 2
-Player: nunu , attempts: 2
-Player: KIKO , attempts: 2
-Player: LKL , attempts: 2
-Player: dfd , attempts: 2
