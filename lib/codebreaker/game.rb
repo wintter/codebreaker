@@ -23,20 +23,19 @@ module Codebreaker
       return 'Incorrect_code' unless user_code.match(/^[1-6]{4}/)
       message = String.new
       index = String.new
-      code = @code.clone
+      code_copy = @code.clone
+      user_code_copy = user_code.clone
       (0...4).each do |val|
         if @code[val]==user_code[val]
           message << '+'
-          index << @code[val]
+          code_copy.slice! @code[val]
+          user_code_copy.slice! @code[val]
         end
       end
 
-      code.delete! index.split('').to_s
-      user_code.delete! index.split('').to_s
-
-      user_code.each_char do |val|
-        if code.include? val
-          code.slice! code[code.index val]
+      user_code_copy.each_char do |val|
+        if code_copy.include? val
+          code_copy.slice! code_copy[code_copy.index val]
           message << '-'
         end
       end
