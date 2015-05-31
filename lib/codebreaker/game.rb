@@ -12,6 +12,7 @@ module Codebreaker
     end
 
     def get_hint
+      return '' unless @hint
       @hint = false
       result = '****'
       val = rand(4)
@@ -21,8 +22,9 @@ module Codebreaker
 
     def comparison user_code
       return 'Incorrect_code' unless user_code.match(/^[1-6]{4}/)
+      return 'Game over' if @attempt == 0
+      @attempt -=1
       message = String.new
-      index = String.new
       code_copy = @code.clone
       user_code_copy = user_code.clone
       (0...4).each do |val|
