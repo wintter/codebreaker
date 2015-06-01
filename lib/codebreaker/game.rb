@@ -22,7 +22,6 @@ module Codebreaker
 
     def comparison user_code
       return 'Incorrect_code' unless user_code.match(/^[1-6]{4}/)
-      return 'Game over' if @attempt == 0
       @attempt -= 1
       message = String.new
       code_copy = @code.clone
@@ -42,6 +41,7 @@ module Codebreaker
         end
       end
 
+      return 'Game over' if @attempt == 0 && message != '++++'
       message
     end
 
